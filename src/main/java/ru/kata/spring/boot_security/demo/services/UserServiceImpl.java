@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
         userToUpdate.setRoles(roles);
         userToUpdate.setName(user.getName());
         userToUpdate.setProfession(user.getProfession());
-        userToUpdate.setPassword(user.getPassword());
+        userToUpdate.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(userToUpdate);
         //em.merge(user);
     }
